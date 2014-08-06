@@ -20,7 +20,7 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 #import "SRServerSentEventsTransport.h"
 #import "SRConnectionInterface.h"
 #import "SREventSourceStreamReader.h"
