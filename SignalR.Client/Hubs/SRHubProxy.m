@@ -45,6 +45,11 @@
     if (self = [super init]) {
         _connection = connection;
         _hubName = hubname;
+        if ([connection securityPolicy] != nil) {
+            [_connection setSecurityPolicy:[connection securityPolicy]];
+        } else {
+            [_connection setSecurityPolicy:[AFSecurityPolicy defaultPolicy]];
+        }
         _subscriptions = [[NSMutableDictionary alloc] init];
         _state = [[NSMutableDictionary alloc] init];
     }

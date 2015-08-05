@@ -67,8 +67,8 @@
     [operation setResponseSerializer:[AFJSONResponseSerializer serializer]];
     //operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
     //operation.credential = self.credential;
-operation.securityPolicy = [[AFSecurityPolicy alloc] init];
-    operation.securityPolicy.allowInvalidCertificates = YES;
+    operation.securityPolicy = [connection securityPolicy];
+    
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if(block) {
             block([[SRNegotiationResponse alloc] initWithDictionary:responseObject], nil);

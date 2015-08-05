@@ -22,6 +22,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SRConnectionState.h"
+#import "AFSecurityPolicy.h"
 
 @protocol SRClientTransportInterface;
 @class SRKeepAliveData;
@@ -47,6 +48,7 @@
 @property (strong, nonatomic, readonly) id<SRClientTransportInterface> transport;
 @property (strong, nonatomic, readwrite) NSURLCredential *credentials;
 @property (strong, nonatomic, readwrite) NSMutableDictionary *headers;
+@property (strong, nonatomic, readwrite) AFSecurityPolicy *securityPolicy;
 
 ///-------------------------------
 /// @name Connection Management

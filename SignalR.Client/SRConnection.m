@@ -67,6 +67,7 @@
 @synthesize transport = _transport;
 @synthesize credentials = _credentials;
 @synthesize headers = _headers;
+@synthesize securityPolicy = _securityPolicy;
 
 #pragma mark - 
 #pragma mark Initialization
