@@ -40,8 +40,8 @@
 @property (strong, nonatomic, readwrite) NSString *messageId;
 @property (strong, nonatomic, readwrite) NSString *groupsToken;
 @property (strong, nonatomic, readonly) NSMutableDictionary *items;
-@property (strong, nonatomic, readonly) NSString *connectionId;
-@property (strong, nonatomic, readonly) NSString *connectionToken;
+@property (strong, nonatomic, readwrite) NSString *connectionId;
+@property (strong, nonatomic, readwrite) NSString *connectionToken;
 @property (strong, nonatomic, readonly) NSString *url;
 @property (strong, nonatomic, readonly) NSDictionary *queryString;
 @property (assign, nonatomic, readonly) connectionState state;
@@ -49,6 +49,12 @@
 @property (strong, nonatomic, readwrite) NSURLCredential *credentials;
 @property (strong, nonatomic, readwrite) NSMutableDictionary *headers;
 @property (strong, nonatomic, readwrite) AFSecurityPolicy *securityPolicy;
+
+///-------------------------------
+/// @name Internal state
+///-------------------------------
+
+- (NSString *)onSending;//TODO: this just encapsulates connectionData. can we pull this into a getUrl like js client does?
 
 ///-------------------------------
 /// @name Connection Management
