@@ -169,7 +169,12 @@ typedef void (^SRCompletionHandler)(id response, NSError *error);
     [request setValue:@"Keep-Alive" forHTTPHeaderField:@"Connection"];
     //TODO: prepareRequest
     SRHTTPRequestOperation *operation = [[SRHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setResponseSerializer:[AFJSONResponseSerializer serializer]];
+    AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
+    NSMutableSet *set = [serializer.acceptableContentTypes mutableCopy];
+    [set addObject:@"text/event-stream"];
+    serializer.acceptableContentTypes = [set copy];
+    [operation setResponseSerializer:serializer];
+
     //operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
     //operation.credential = self.credential;
     //operation.securityPolicy = self.securityPolicy;
